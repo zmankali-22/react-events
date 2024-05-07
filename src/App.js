@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      numberOfPokemonToShow: 6,
+    };
+  }
+
+  increaseNumber = () => {
+    this.setState((prevState) => ({
+      numberOfPokemonToShow: prevState.numberOfPokemonToShow + 1,
+    }));
+  };
+
+  decreaseNumber = () => {
+    this.setState((prevState) => ({
+      numberOfPokemonToShow:
+        prevState.numberOfPokemonToShow > 1
+          ? prevState.numberOfPokemonToShow - 1
+          : 1,
+    }));
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <h1>
+          Number of pokemon to show: {this.state.numberOfPokemonToShow}
+        </h1>
+        <button onClick={this.increaseNumber}>Increase number</button>
+        <button onClick={this.decreaseNumber}>Decrease number</button>
+      </div>
+    );
+  }
 }
 
 export default App;
