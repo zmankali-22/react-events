@@ -19,9 +19,9 @@ class App extends React.Component {
   decreaseNumber = () => {
     this.setState((prevState) => ({
       numberOfPokemonToShow:
-        prevState.numberOfPokemonToShow > 1
-          ? prevState.numberOfPokemonToShow - 1
-          : 1,
+        prevState.numberOfPokemonToShow === 0
+          ? 0
+          : prevState.numberOfPokemonToShow - 1,
     }));
   };
 

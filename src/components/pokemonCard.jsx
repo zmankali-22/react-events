@@ -23,12 +23,17 @@ class PokemonCard extends React.Component {
     });
   }
 
+  preventContextMenu(event) {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>
         {this.state.name && <h1>{this.state.name}</h1>}
         {this.state.imageUrl && (
           <img
+            onContextMenu={this.preventContextMenu}
             src={this.state.imageUrl}
             alt="the sprite of this pokemon"
           />
