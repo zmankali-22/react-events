@@ -28,10 +28,16 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>
-          Number of pokemon to show: {this.state.numberOfPokemonToShow}
+          Number of pokemon to show:{" "}
+          {this.state.numberOfPokemonToShow}
         </h1>
         <button onClick={this.increaseNumber}>Increase number</button>
         <button onClick={this.decreaseNumber}>Decrease number</button>
+        {Array(this.state.numberOfPokemonToShow)
+          .fill(null)
+          .map((element, index) => {
+            return <h1>{index}</h1>;
+          })}
       </div>
     );
   }
